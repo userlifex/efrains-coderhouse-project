@@ -1,0 +1,30 @@
+.NavContainer {
+  height: 6em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ImgContainer {
+  height: 90%;
+}
+
+.ImgLogo {
+  display: inline-block;
+  object-fit: contain;
+  height: 100%;
+}
+
+.NavOptionsContainer {
+  list-style-type: none;
+  display: flex;
+}
+
+.NavOptionsContainer > li {
+  margin: 0 2rem;
+  color: var(--primary-light);
+  font-size: 1.125rem;
+  font-weight: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  cursor: pointer;
+}
