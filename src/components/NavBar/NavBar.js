@@ -1,4 +1,5 @@
 import { images } from "../../common";
+import { CartWidget } from "../CartWidget/CartWidget";
 import "./NavBar.css";
 
 export const NavBar = () => {
@@ -12,6 +13,7 @@ export const NavBar = () => {
         <li>OFFERTS</li>
         <li>CONTACT</li>
       </ul>
+      <CartWidget />
     </nav>
   );
 };

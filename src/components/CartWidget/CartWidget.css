@@ -1,0 +1,23 @@
+.CartWidget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 54px;
+}
+
+.Text {
+  color: white;
+  margin: 0;
+  font-size: 1.5rem;
+  margin-left: 0.75rem;
+}
+
+.ImgContainer {
+  height: 90%;
+}
+
+.ImgLogo {
+  display: inline-block;
+  object-fit: contain;
+  height: 50px;
+}
