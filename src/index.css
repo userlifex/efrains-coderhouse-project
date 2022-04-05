@@ -21,6 +21,7 @@ body {
   box-sizing: border-box;
   background-color: var(--primary-dark);
   padding: 0 4rem;
+  color: var(--primary-light);
 }
 
 code {
