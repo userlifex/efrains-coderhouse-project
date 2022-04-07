@@ -1,0 +1,15 @@
+.Item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem;
+}
+
+p {
+  margin-top: 1rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
