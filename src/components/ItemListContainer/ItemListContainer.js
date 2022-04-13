@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { asyncSongs } from "../../common/asyncSongs";
-import { Counter } from "..";
 import { ItemList } from "../ItemList/ItemList";
 import "./ItemListContainer.css";
 

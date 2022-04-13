@@ -1,0 +1,19 @@
+.ItemDetail {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.ItemText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 2rem;
+}
+
+h2 span {
+  font-size: 1.5rem;
+  font-weight: normal;
+  font-style: italic;
+}
