@@ -15,6 +15,9 @@ export const ItemDetail = ({ product }) => {
           Title (en): <span>{product.name["name-EUen"]}</span>
         </h2>
         <h2>
+          Category: <span>{product.category.toUpperCase()}</span>
+        </h2>
+        <h2>
           Price: <span>{product["sell-price"]}</span>
         </h2>
         <div>

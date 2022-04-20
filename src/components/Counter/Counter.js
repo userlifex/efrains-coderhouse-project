@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import './Counter.css'
+import "./Counter.css";
 
 export const Counter = ({ initial, stock, handleOnAdd }) => {
-  console.log(initial);
   const [count, setCount] = useState(initial);
 
   useEffect(() => {

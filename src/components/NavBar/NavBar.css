@@ -28,3 +28,24 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   cursor: pointer;
 }
+
+a {
+  text-decoration: none;
+}
+
+.Active,
+.Inactive {
+  padding: 1rem;
+  border-radius: 1rem;
+  /*background-color: var(--primary-light);*/
+}
+
+.Active {
+  color: var(--secondary-dark);
+  background-color: var(--secondary-light);
+}
+
+.Inactive {
+  color: var(--secondary-light);
+  background-color: var(--secondary-dark);
+}

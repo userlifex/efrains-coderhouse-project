@@ -10,7 +10,8 @@ export const ItemList = ({ products }) => {
 
         return (
           <Item
-            key={product.id}
+            key={id}
+            id={id}
             title={name["name-USes"]}
             price={price}
             img={image_uri}
