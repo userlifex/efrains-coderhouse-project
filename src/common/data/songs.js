@@ -39,6 +39,7 @@ export const songs = [
     isOrderable: true,
     music_uri: "https://acnhapi.com/v1/music/1",
     image_uri: "https://acnhapi.com/v1/images/songs/1",
+    stock: 13,
   },
   {
     id: 2,
@@ -65,6 +66,7 @@ export const songs = [
     isOrderable: true,
     music_uri: "https://acnhapi.com/v1/music/2",
     image_uri: "https://acnhapi.com/v1/images/songs/2",
+    stock: 10,
   },
   {
     id: 3,
@@ -91,9 +93,11 @@ export const songs = [
     isOrderable: false,
     music_uri: "https://acnhapi.com/v1/music/3",
     image_uri: "https://acnhapi.com/v1/images/songs/3",
+    stock: 11,
   },
   {
     id: 4,
+    stock: 5,
     category: "rock",
     "file-name": "mjk_Idol",
     name: {
@@ -120,6 +124,7 @@ export const songs = [
   },
   {
     id: 5,
+    stock: 56,
     category: "rock",
     "file-name": "mjk_Paris",
     name: {
@@ -146,6 +151,7 @@ export const songs = [
   },
   {
     id: 6,
+    stock: 5,
     category: "rock",
     "file-name": "mjk_ShowaKayo",
     name: {
@@ -172,6 +178,7 @@ export const songs = [
   },
   {
     id: 7,
+    stock: 7,
     category: "country",
     "file-name": "mjk_EuroBeat",
     name: {
@@ -198,6 +205,7 @@ export const songs = [
   },
   {
     id: 8,
+    stock: 9,
     category: "country",
     "file-name": "mjk_Drive",
     name: {
@@ -224,6 +232,7 @@ export const songs = [
   },
   {
     id: 9,
+    stock: 40,
     category: "country",
     "file-name": "mjk_Sayonara",
     name: {
@@ -250,6 +259,7 @@ export const songs = [
   },
   {
     id: 10,
+    stock: 10,
     category: "country",
     "file-name": "mjk_MoriNoSeikatsu",
     name: {
@@ -276,6 +286,7 @@ export const songs = [
   },
   {
     id: 11,
+    stock: 12,
     category: "rock",
     "file-name": "mjk_KekeRider",
     name: {
@@ -302,6 +313,7 @@ export const songs = [
   },
   {
     id: 12,
+    stock: 12,
     category: "pop",
     "file-name": "mjk_UtataneNoYume",
     name: {
