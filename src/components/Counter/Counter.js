@@ -4,9 +4,9 @@ import "./Counter.css";
 export const Counter = ({ initial = 0, stock, handleOnAdd }) => {
   const [count, setCount] = useState(initial);
 
-  useEffect(() => {
-    handleOnAdd(count);
-  }, [count, handleOnAdd]);
+  //useEffect(() => {
+  //handleOnAdd(count);
+  //}, [count, handleOnAdd]);
 
   const increment = () => {
     if (count < stock) {
@@ -21,10 +21,14 @@ export const Counter = ({ initial = 0, stock, handleOnAdd }) => {
   };
 
   return (
-    <div className="Counter">
-      <button onClick={decrement}>-</button>
-      <p>{count}</p>
-      <button onClick={increment}>+</button>
+    <div className="CounterContainer">
+      <div className="Counter">
+        <button onClick={decrement}>-</button>
+        <p>{count}</p>
+        <button onClick={increment}>+</button>
+      </div>
+
+      <button onClick={() => handleOnAdd(count)}>Agregar al carrito</button>
     </div>
   );
 };

@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Counter } from "../";
 import { Link } from "react-router-dom";
 import "./ItemDetail.css";
+import { CartContext } from "../../context/CartContext";
 
 export const ItemDetail = ({ product }) => {
   const { image_uri } = product;
-  const [quantity, setQuantity] = useState(0);
+  const { cart, addToCart, productIsInCart } = useContext(CartContext);
 
   const handleChange = (quantityAdded) => {
-    setQuantity(quantityAdded);
+    addToCart({ ...product, quantity: quantityAdded });
   };
+
+  console.log(cart);
 
   return (
     <div className="ItemDetail">
@@ -37,8 +40,14 @@ export const ItemDetail = ({ product }) => {
           <audio controls src={product.music_uri} />
         </div>
         <div>
-          <Counter stock={product.stock || 10} handleOnAdd={handleChange} />
-          <Link to="/cart">Ir al carrito...</Link>
+          {productIsInCart(product.id) ? (
+            <div>
+              <p>El producto ya esta agregado</p>
+              <Link to="/cart">Ir al carrito...</Link>
+            </div>
+          ) : (
+            <Counter stock={product.stock || 10} handleOnAdd={handleChange} />
+          )}
         </div>
       </div>
     </div>
