@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { images } from "../../common";
 import "./CartWidget.css";
-import { CartContext } from "../../context/CartContext";
+import { useCart } from "../../context/CartContext";
 
 export const CartWidget = () => {
-  const { quantity } = useContext(CartContext);
+  const { quantity } = useCart();
 
   return (
-    <div className="CartWidget">
+    <div className="CartWidget" style={{ opacity: quantity === 0 ? 0 : 1 }}>
       <div className="ImgContainer">
         <img className="ImgLogo" src={images.cartIcon} alt="" />
       </div>

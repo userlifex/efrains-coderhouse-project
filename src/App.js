@@ -1,14 +1,10 @@
-import { createContext, useState } from "react";
 import "./App.css";
 import { ItemDetailContainer, ItemListContainer, NavBar } from "./components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartContextProvider } from "./context/CartContext";
-
-//export const Context = createContext();
+import { Cart } from "./components/Cart/Cart";
 
 function App() {
-  //const [cart, setCart] = useState([]);
-
   return (
     <div className="App">
       <CartContextProvider>
@@ -23,6 +19,7 @@ function App() {
               path="/category/:categoryId"
               element={<ItemListContainer />}
             />
+            <Route path="/cart" element={<Cart />} />
             <Route path="*" element={<h1>Route not found</h1>} />
           </Routes>
         </BrowserRouter>

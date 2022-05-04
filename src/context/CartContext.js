@@ -1,4 +1,10 @@
-import { createContext, useState, useEffect, useCallback } from "react";
+import {
+  useState,
+  useEffect,
+  useCallback,
+  useContext,
+  createContext,
+} from "react";
 
 export const CartContext = createContext({
   cart: [],
@@ -10,6 +16,7 @@ export const CartContext = createContext({
 export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [quantity, setQuantity] = useState(0);
+  const [total, setTotal] = useState(0);
 
   const getQuantity = useCallback(() => {
     let count = 0;
@@ -20,12 +27,27 @@ export const CartContextProvider = ({ children }) => {
   useEffect(() => {
     const q = getQuantity();
     setQuantity(q);
+    const totalSellCart = cart.reduce(
+      (acc, prod) => acc + prod.price * prod.quantity,
+      0
+    );
+    setTotal(totalSellCart);
   }, [cart, getQuantity]);
 
   const addToCart = (product) => {
     const { id, name, category, quantity } = product;
+    console.log(product["sell-price"]);
 
-    setCart([...cart, { id, category, quantity, name: name["name-USes"] }]);
+    setCart([
+      ...cart,
+      {
+        id,
+        category,
+        quantity,
+        price: product["sell-price"],
+        name: name["name-USes"],
+      },
+    ]);
   };
 
   const removeFromCart = (id) => {
@@ -49,10 +71,13 @@ export const CartContextProvider = ({ children }) => {
         removeFromCart,
         clearCart,
         quantity,
-        productIsInCart
+        productIsInCart,
+        total,
       }}
     >
       {children}
     </CartContext.Provider>
   );
 };
+
+export const useCart = () => useContext(CartContext);

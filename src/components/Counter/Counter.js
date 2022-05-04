@@ -28,7 +28,9 @@ export const Counter = ({ initial = 0, stock, handleOnAdd }) => {
         <button onClick={increment}>+</button>
       </div>
 
-      <button onClick={() => handleOnAdd(count)}>Agregar al carrito</button>
+      {count > 0 && (
+        <button onClick={() => handleOnAdd(count)}>Add to cart</button>
+      )}
     </div>
   );
 };

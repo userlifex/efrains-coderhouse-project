@@ -2,11 +2,11 @@ import { useState, useContext } from "react";
 import { Counter } from "../";
 import { Link } from "react-router-dom";
 import "./ItemDetail.css";
-import { CartContext } from "../../context/CartContext";
+import { useCart } from "../../context/CartContext";
 
 export const ItemDetail = ({ product }) => {
   const { image_uri } = product;
-  const { cart, addToCart, productIsInCart } = useContext(CartContext);
+  const { cart, addToCart, productIsInCart } = useCart();
 
   const handleChange = (quantityAdded) => {
     addToCart({ ...product, quantity: quantityAdded });

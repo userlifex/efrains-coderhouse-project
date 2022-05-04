@@ -1,12 +1,7 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-//import { Context } from "../../App";
 
 import "./Item.css";
 export const Item = ({ id, title, img, price }) => {
-  //const { cart, setCart } = useContext(Context);
-
-
   return (
     <div className="Item">
       <h2>{title}</h2>
