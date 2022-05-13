@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import { asyncSong } from "../../common/asyncSongs";
 import { ItemDetail } from "../../components";
 import "./ItemDetailContainer.css";
-
+import { getDoc, doc } from "firebase/firestore";
+import { firestore } from "../../services/firebase/";
 export const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -11,8 +12,9 @@ export const ItemDetailContainer = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    asyncSong(+itemId).then((res) => {
-      setProduct(res);
+    getDoc(doc(firestore, "products", itemId)).then((response) => {
+      const product = { id: response.id, ...response.data() };
+      setProduct(product);
       setIsLoading(false);
     });
   }, [itemId]);

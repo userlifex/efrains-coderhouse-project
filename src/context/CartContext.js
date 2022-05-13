@@ -45,7 +45,7 @@ export const CartContextProvider = ({ children }) => {
         category,
         quantity,
         price: product["sell-price"],
-        name: name["name-USes"],
+        name: name,
       },
     ]);
   };

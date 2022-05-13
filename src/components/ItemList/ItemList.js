@@ -12,7 +12,7 @@ export const ItemList = ({ products }) => {
           <Item
             key={id}
             id={id}
-            title={name["name-USes"]}
+            title={name}
             price={price}
             img={image_uri}
           />

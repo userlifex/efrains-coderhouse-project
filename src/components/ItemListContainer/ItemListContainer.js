@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { firestore } from "../../services/firebase";
+
 import { asyncSongs, asyncSongsByCategory } from "../../common/asyncSongs";
 import { ItemList } from "../ItemList/ItemList";
 import "./ItemListContainer.css";
@@ -10,11 +13,21 @@ export const ItemListContainer = ({ greting }) => {
   const { categoryId } = useParams();
 
   useEffect(() => {
+    let collectionRef = collection(firestore, "products");
+
+    if (categoryId) {
+      collectionRef = query(collectionRef, where("category", "==", categoryId));
+    }
+
     setIsLoading(true);
-    asyncSongsByCategory(categoryId).then((res) => {
-      setProducts(res);
-      console.log(res);
+    getDocs(collectionRef).then((response) => {
+      console.log(response);
+      const products = response.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
+      });
       setIsLoading(false);
+
+      setProducts(products);
     });
   }, [categoryId]);
 

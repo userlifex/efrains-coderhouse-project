@@ -21,10 +21,10 @@ export const ItemDetail = ({ product }) => {
       </div>
       <div className="ItemText">
         <h2>
-          Titulo (es): <span>{product.name["name-EUes"]}</span>
+          Titulo (es): <span>{product.name}</span>
         </h2>
         <h2>
-          Title (en): <span>{product.name["name-EUen"]}</span>
+          Title (en): <span>{product.name}</span>
         </h2>
         <h2>
           Category: <span>{product.category.toUpperCase()}</span>
