@@ -36,7 +36,6 @@ export const CartContextProvider = ({ children }) => {
 
   const addToCart = (product) => {
     const { id, name, category, quantity } = product;
-    console.log(product["sell-price"]);
 
     setCart([
       ...cart,

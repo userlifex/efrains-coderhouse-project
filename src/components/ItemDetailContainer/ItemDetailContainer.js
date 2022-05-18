@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { asyncSong } from "../../common/asyncSongs";
 import { ItemDetail } from "../../components";
 import "./ItemDetailContainer.css";
 import { getDoc, doc } from "firebase/firestore";
@@ -18,8 +17,6 @@ export const ItemDetailContainer = () => {
       setIsLoading(false);
     });
   }, [itemId]);
-
-  console.log({ product });
 
   return !isLoading ? (
     !product ? (

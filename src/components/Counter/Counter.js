@@ -2,11 +2,9 @@ import { useState, useEffect } from "react";
 import "./Counter.css";
 
 export const Counter = ({ initial = 0, stock, handleOnAdd }) => {
-  console.log({ stock });
   const [count, setCount] = useState(initial);
 
   const increment = () => {
-    console.log({ count, stock });
     if (count < stock) {
       setCount((current) => current + 1);
     }

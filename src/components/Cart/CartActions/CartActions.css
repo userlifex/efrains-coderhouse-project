@@ -8,5 +8,10 @@
 }
 
 .CartActions button {
-  width: 200px
+  width: 200px;
+}
+
+.NotUser {
+  margin: 1rem;
+  text-align: center;
 }

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useCart } from "../../context/CartContext";
+import { useUserContext } from "../../context/UserContext";
 import { CartItem } from "../CarItem/CartItem";
 import { Link } from "react-router-dom";
 import { firestore } from "../../services/firebase";
 import {
   collection,
-  getDoc,
   query,
   where,
   writeBatch,
@@ -21,10 +21,11 @@ export const Cart = () => {
   const [orderId, setOrderId] = useState();
   const [error, setError] = useState(null);
   const { cart, removeFromCart, total, clearCart } = useCart();
+  const { user } = useUserContext();
 
   useEffect(() => {
     return () => {
-      clearCart();
+      clearComponent();
     };
   }, []);
 
@@ -38,11 +39,7 @@ export const Cart = () => {
     setIsLoading(true);
     const objOrder = {
       items: cart,
-      buyer: {
-        name: "Jon Doe",
-        phone: "+7 (921) 921-921-921",
-        email: "jon.doe@gmail.com",
-      },
+      buyer: user,
       total: total,
       date: new Date(),
     };
@@ -85,6 +82,7 @@ export const Cart = () => {
       })
       .then(({ id }) => {
         batch.commit();
+        console.log("Orden creada con id: ", id);
         setOrderId(id);
         clearCart();
       })
@@ -126,7 +124,9 @@ export const Cart = () => {
   }
 
   if (orderId) {
-    return <Message msg={`✨ Tu orden ha sido creada con exito ✨`} />;
+    return (
+      <Message msg={`✨ ${user.name}, tu orden ha sido creada con exito ✨`} />
+    );
   }
 
   if (error) {
