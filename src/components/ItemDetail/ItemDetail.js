@@ -12,8 +12,6 @@ export const ItemDetail = ({ product }) => {
     addToCart({ ...product, quantity: quantityAdded });
   };
 
-  console.log(cart);
-
   return (
     <div className="ItemDetail">
       <div>
@@ -46,7 +44,7 @@ export const ItemDetail = ({ product }) => {
               <Link to="/cart">Ir al carrito...</Link>
             </div>
           ) : (
-            <Counter stock={product.stock || 10} handleOnAdd={handleChange} />
+            <Counter stock={product.stock} handleOnAdd={handleChange} />
           )}
         </div>
       </div>

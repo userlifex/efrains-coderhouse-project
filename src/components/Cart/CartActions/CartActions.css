@@ -1,0 +1,12 @@
+.CartActions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  /*border-top: 1px solid #e6e6e6;*/
+}
+
+.CartActions button {
+  width: 200px
+}

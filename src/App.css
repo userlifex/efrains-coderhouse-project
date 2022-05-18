@@ -1,2 +1,19 @@
 .App {
 }
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  padding: 4px 1.5rem;
+  font-size: 1.075em;
+  font-weight: bold;
+  background-color: var(--secondary-light);
+}
+
+button:disabled,
+button[disabled="true"] {
+  background-color: var(--secondary-dark);
+  cursor: not-allowed;
+}

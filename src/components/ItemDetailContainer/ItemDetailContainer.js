@@ -7,7 +7,7 @@ import { getDoc, doc } from "firebase/firestore";
 import { firestore } from "../../services/firebase/";
 export const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const { itemId } = useParams();
 
   useEffect(() => {
@@ -18,6 +18,8 @@ export const ItemDetailContainer = () => {
       setIsLoading(false);
     });
   }, [itemId]);
+
+  console.log({ product });
 
   return !isLoading ? (
     !product ? (

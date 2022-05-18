@@ -34,7 +34,7 @@ export const ItemListContainer = ({ greting }) => {
   return (
     <div>
       {isLoading ? (
-        <h1>Loading...</h1>
+        <h3>Loading...</h3>
       ) : products.length > 0 ? (
         <div>
           <h1>Albumnes dispoibles: </h1>

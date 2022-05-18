@@ -2,13 +2,11 @@ import { useState, useEffect } from "react";
 import "./Counter.css";
 
 export const Counter = ({ initial = 0, stock, handleOnAdd }) => {
+  console.log({ stock });
   const [count, setCount] = useState(initial);
 
-  //useEffect(() => {
-  //handleOnAdd(count);
-  //}, [count, handleOnAdd]);
-
   const increment = () => {
+    console.log({ count, stock });
     if (count < stock) {
       setCount((current) => current + 1);
     }
@@ -23,14 +21,20 @@ export const Counter = ({ initial = 0, stock, handleOnAdd }) => {
   return (
     <div className="CounterContainer">
       <div className="Counter">
-        <button onClick={decrement}>-</button>
+        <button disabled={stock === 0 || count === 0} onClick={decrement}>
+          -
+        </button>
         <p>{count}</p>
-        <button onClick={increment}>+</button>
+        <button disabled={stock === 0 || count === stock} onClick={increment}>
+          +
+        </button>
       </div>
 
-      {count > 0 && (
-        <button onClick={() => handleOnAdd(count)}>Add to cart</button>
-      )}
+      <button disabled={count === 0} onClick={() => handleOnAdd(count)}>
+        Add to cart
+      </button>
+
+      {stock === 0 && <p>Out of stock</p>}
     </div>
   );
 };
